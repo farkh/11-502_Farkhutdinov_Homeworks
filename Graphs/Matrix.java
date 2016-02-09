@@ -28,7 +28,6 @@ public class Matrix implements Graph {
   
   public void addEdge(int a, int b) {
     this.matrix[a][b] = 1;
-    this.matrix[b][a] = 1;
   }
   
   public void showGraph() {
