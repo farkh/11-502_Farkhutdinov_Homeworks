@@ -1,7 +1,6 @@
-package ru.itis.inform;
 
 public interface Graph {
   void addVertex();
-  void addEdge(int a, int b);
+  void addEdge(int a, int b, int weight);
   void showGraph();
 }

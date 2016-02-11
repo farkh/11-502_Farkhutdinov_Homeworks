@@ -1,4 +1,3 @@
-package ru.itis.inform;
 
 public class Matrix implements Graph {
   public final int DEFAULT_SIZE = 100;
@@ -28,8 +27,10 @@ public class Matrix implements Graph {
     else throw new IllegalArgumentException();
   }  
   
-  public void addEdge(int a, int b) {
-    this.matrix[a][b] = 1;
+  public void addEdge(int a, int b, int weight) {
+    if (a < count_vertices && b < count_vertices) {
+      this.matrix[a][b] = weight;
+    } else throw new IllegalArgumentException();
   }
   
   public void showGraph() {
