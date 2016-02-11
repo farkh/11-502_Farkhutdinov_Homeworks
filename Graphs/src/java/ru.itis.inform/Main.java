@@ -1,3 +1,5 @@
+package ru.itis.inform;
+
 class Main {
   public static void main(String[] args) {
     Graph graph = new Matrix();

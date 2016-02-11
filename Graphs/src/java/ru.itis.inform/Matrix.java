@@ -1,3 +1,5 @@
+package ru.itis.inform;
+
 public class Matrix implements Graph {
   public final int DEFAULT_SIZE = 100;
   
