@@ -1,4 +1,4 @@
 public interface IntLinkedList {
-  void add(int element);
+  void add(int value);
   void remove(int element);
 }
