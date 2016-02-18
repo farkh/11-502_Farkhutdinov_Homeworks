@@ -1,28 +1,30 @@
-public class LinkedList {
-  private Element first;
-  private int length;
-
-  public LinkedList() {
-    first = null;
-    length = 0;
-  }
-
-  public void add(int value) {
-    Element element = new Element(value);
-
-    if (first == null) { first = element; }
-    else {
-      element.setNext(this.first);
-      this.first = element;
-    }
-    length++;
-  }
+public class LinkedList<T> implements List<T> {
+  private Element<T> first;
+  private int count;
   
-  public void remove(int element) {
-    Element currElement = this.first;
+  public LinkedList() {
+    this.first = null;
+    this.count = 0;
+  }
 
-    for (int i = 0; i < length - 1; i++) {
-      if (i == 0 & currElement.getValue() == element) {
+  public void add(T element) {
+    Element<T> newElement = new Element<T>(element);
+    newElement.setPrevious(null);
+    if (first == null) {
+      this.first = newElement;
+    } else {
+      newElement.setNext(this.first);
+      first.setPrevious(newElement);
+      first = newElement;
+    }
+    this.count++;
+  } 
+
+  public void remove(T element) {
+    Element<T> currElement = this.first;
+
+    for (int i = 0; i < count - 1; i++) {
+      if (i == 0 && currElement.getValue() == element) {
         first = currElement.getNext();
         break;
       }
@@ -32,7 +34,7 @@ public class LinkedList {
           first = currElement;
           currElement.setNext(null);
           break;
-        } else if (i == length - 2) {
+        } else if (i == count - 2) {
           currElement.setNext(null);
           break;
         } else {
@@ -40,19 +42,10 @@ public class LinkedList {
           break;
         }
       }
-      
-      currElement = currElement.getNext();
     }
-    length--;
   }
 
-  public void show() {
-    Element element = first;
-
-    while (element.getNext() != null) {
-      System.out.print(element.getValue() + "--> ");
-      element = element.getNext();
-    }
-    System.out.print(element.getValue());
+  public Iterator<T> iterator() {
+    return new LinkedListIteratorImpl<T>(this.first);
   }
 }

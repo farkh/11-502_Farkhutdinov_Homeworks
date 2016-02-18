@@ -1,20 +1,30 @@
-public class Element {
-  private int value;
-  private Element next;
+public class Element<T> {
+  private T value;
+  private Element<T> next;
+  private Element<T> previous;
 
-  public Element(int value) {
+  public Element(T value) {
     this.value = value;
+    this.next = null;
   }
 
-  public void setNext(Element next) {
+  public void setNext(Element<T> next) {
     this.next = next;
   }
 
-  public int getValue() {
-    return this.value;
+  public void setPrevious(Element<T> previous) {
+    this.previous = previous;
   }
 
-  public Element getNext() {
-    return this.next;
+  public T getValue() {
+    return value;
+  }
+
+  public Element<T> getNext() {
+    return next;
+  }
+
+  public Element<T> getPrevious() {
+    return previous;
   }
 }
