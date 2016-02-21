@@ -29,16 +29,16 @@ public class FareySequenceGenerator {
 
   //get number of elements
   public int getNumber() {
-    return number;
+    return this.number;
   }
 
   //get current number of elemetns
   public int currentNumber() {
-    return currentNumber;
+    return this.currentNumber;
   }
 
   public Rational[] getArray() {
-    return array;
+    return this.array;
   }
 
   public void move(int start) {
@@ -48,7 +48,7 @@ public class FareySequenceGenerator {
   }
 
   //generate element
-  public void generate() {
+  public void generateFarey() {
     for (int iter = 2; iter <= number; iter++) {
       int i = 0;
       while (i != currentNumber) {

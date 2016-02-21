@@ -6,13 +6,21 @@ public class LinkedListIteratorImpl<T> implements Iterator<T> {
   }
 
   public boolean hasNext() {
-    return current != null;
+    if (current.getNext() != null) {
+      return true;
+    } else { return false; }
+  }
+
+  public boolean hasPrevious() {
+    if (current.getPrevious() != null) {
+      return true;
+    } else { return false; }
   }
 
   public T next() {
-    T value = current.getValue();
-    current = current.getNext();
-    return value;
+    if (current.getNext() != null) {
+      return current.getNext().getValue();
+    } else { return null; }
   }
 
   public T previous() {
@@ -21,7 +29,28 @@ public class LinkedListIteratorImpl<T> implements Iterator<T> {
     } else { return null; }
   }
 
-  public void insert(T element) {
+  //peaks next element in list
+  public T peakNext() {
+    if (hasNext()) {
+      return current.getNext().getValue();
+    } else throw new IllegalArgumentException();
+  }
 
+  //peaks previous element in list
+  public T peakPrevious() {
+    if (hasPrevious()) {
+      return current.getPrevious().getValue();
+    } else throw new IllegalArgumentException();
+  } 
+
+  public void insert(T element) {
+    Element<T> newElement = new Element<T>(element);
+
+    if (current.getPrevious() != null) {
+      newElement.setPrevious(current.getPrevious());
+      newElement.getPrevious().setNext(newElement);
+      newElement.setNext(current);
+      current.setPrevious(newElement);
+    } else throw new IllegalArgumentException();
   }
 }

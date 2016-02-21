@@ -1,3 +1,5 @@
+package LinkedList;
+
 public class Element {
   private Rational value;
   private Element next;

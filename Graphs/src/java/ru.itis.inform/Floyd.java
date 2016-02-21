@@ -11,7 +11,6 @@ public class Floyd {
   public void initFloyd(int[][] matrix) {
     d = matrix;
     length = 5;
-    //length = d.length;
   }
 
   public void generate() {
