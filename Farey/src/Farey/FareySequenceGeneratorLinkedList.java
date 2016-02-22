@@ -25,6 +25,7 @@ public class FareySequenceGeneratorLinkedList {
         this.list = new LinkedList<Rational>();
         this.list.add(new Rational(0, 1));
         this.list.add(new Rational(1, 1));
+        list.showList();
     }
 
     public void generate() {
@@ -45,9 +46,9 @@ public class FareySequenceGeneratorLinkedList {
     }
 
     public void show() {
-        Iterator<Rational> iterato = list.iterator();
-        while(iterato.hasNext()) {
-            System.out.print(iterato.next() + ", ");
+        Iterator<Rational> iterator = list.iterator();
+        while(iterator.hasNext()) {
+            System.out.print(iterator.next() + ", ");
         }
         System.out.println();
     }

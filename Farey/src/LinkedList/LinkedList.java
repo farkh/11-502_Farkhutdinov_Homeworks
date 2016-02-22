@@ -63,7 +63,7 @@ public class LinkedList<T> implements List<T> {
         }
     }
 
-    public void show() {
+    public void showList() {
         Element<T> showingElement = this.first;
 
         while(showingElement != null) {

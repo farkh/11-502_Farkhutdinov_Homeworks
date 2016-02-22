@@ -11,5 +11,8 @@ public class Main {
         fareySequence.generate();
         fareySequence.show();
 
+        FareySequenceGeneratorArray fareySequenceArray = new FareySequenceGeneratorArray(3, 10);
+        fareySequenceArray.generateFarey();
+        fareySequenceArray.show();
     }
 }
