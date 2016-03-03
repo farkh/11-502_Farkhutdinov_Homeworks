@@ -5,7 +5,7 @@ import LinkedList.LinkedList;
 public class Main {
     public static void main(String[] args) {
 	    HumansReaderWriter reader = new HumansReaderWriter();
-        String path = "../input.txt";
+        String path = "/Users/farkh/Documents/Programming/11-502_Farkhutdinov_Homeworks/HumanSort/src/input.txt";
 
         LinkedList<Human> list = reader.readHumans(path);
 

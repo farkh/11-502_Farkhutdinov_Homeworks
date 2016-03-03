@@ -1,5 +1,5 @@
 package ArrayList;
-import LinkedList.*;
+import lists.*;
 
 /**
  * Created by farkh on 28/02/16.

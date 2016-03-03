@@ -12,7 +12,7 @@ public class HumansReaderWriter {
 
 
     public LinkedList<Human> readHumans(String fileName) {
-        //read file Humans.txt
+        //read file input.txt
         LinkedList<Human> list = new LinkedList<Human>();
         try {
             FileReader fr = new FileReader(fileName);
@@ -34,19 +34,20 @@ public class HumansReaderWriter {
     }
 
     public Human makeHuman(String line) {
-        String[] div = line.split(" ");
-        Integer age = Integer.valueOf(div[1]);
-        return new Human(div[0], age);
+        String[] div = line.split(" ", 2);
+        String str = div[0];
+        int age = Integer.valueOf(div[1]);
+        return new Human(str, age);
     }
 
     public void writeHumans(LinkedList<Human> humans) {
-        //write new file HumansSort.txt
+        //write new file output.txt
         Element<Human> element = humans.getFirst();
         String value = element.toString();
-        Path file = Paths.get("./out.txt");
+        Path file = Paths.get("/Users/farkh/Documents/Programming/11-502_Farkhutdinov_Homeworks/HumanSort/src/output.txt");
 
         try {
-            FileWriter writer = new FileWriter("../out.txt", true);
+            FileWriter writer = new FileWriter("/Users/farkh/Documents/Programming/11-502_Farkhutdinov_Homeworks/HumanSort/src/output.txt", true);
         } catch (IOException e) {
             e.printStackTrace();
         }

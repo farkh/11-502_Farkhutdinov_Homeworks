@@ -7,7 +7,7 @@ import ArrayList.*;
  */
 public class HumansSorter {
     public LinkedList<Human> sort(LinkedList<Human> list) {
-        ArrayList<LinkedList<Human>> arrayList = new ArrayList<LinkedList<Human>>(50);
+        ArrayList<LinkedList<Human>> arrayList = new ArrayList<LinkedList<Human>>(100);
 
         Element<Human> element = list.getFirst();
 
