@@ -46,9 +46,12 @@ public class ArrayList<T> implements List<T> {
     }
 
     public T get(int index) {
+        /*
         if (index < size && index > 0) {
             return (T) elements[index];
         } else { throw new IndexOutOfBoundsException(); }
+        */
+        return (T) elements[index];
     }
 
     public int getSize() {
@@ -59,16 +62,20 @@ public class ArrayList<T> implements List<T> {
         LinkedList converted = new LinkedList();
 
         for (int i = 0; i < elements.length; i++) {
-            while (elements[i] != null) {
+            if (elements[i] != null) {
                 LinkedList element;
+                /*
                 if (elements[i] instanceof LinkedList) {
                     element = (LinkedList) elements[i];
                 } else {
                     element = new LinkedList();
                     element.add(elements[i]);
                 }
+                */
+                element = new LinkedList();
+                element.add(elements[i]);
 
-                if (converted.getFirst() != null) {
+                if (converted.getFirst() == null) {
                     converted = element;
                 } else {
                     converted.append(element);

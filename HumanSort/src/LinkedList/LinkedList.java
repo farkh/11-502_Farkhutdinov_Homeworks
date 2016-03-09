@@ -22,7 +22,7 @@ public class LinkedList<T> implements List<T> {
     @Override
     public void add(T element) {
         Element<T> newElement = new Element<T>(element);
-        newElement.setPrevious(null);
+
         if (first == null) {
             this.first = newElement;
             this.last = newElement;
@@ -74,9 +74,9 @@ public class LinkedList<T> implements List<T> {
     }
 
     public void append(LinkedList list) {
-        this.last.setNext(list.getFirst());
-        list.getFirst().setPrevious(last);
-        this.last = list.getLast();
+        this.first.setPrevious(list.getLast());
+        list.getLast().setNext(this.first);
+        this.first = list.getFirst();
         this.length += list.getLength();
     }
 
