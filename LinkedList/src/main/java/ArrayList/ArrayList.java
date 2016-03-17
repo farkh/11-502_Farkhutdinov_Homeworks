@@ -1,10 +1,10 @@
 package ArrayList;
-import lists.*;
+import LinkedList.*;
 
 /**
  * Created by farkh on 28/02/16.
  */
-public class ArrayList<T> implements List<T> {
+public class ArrayList<T> {
     private int size;
     private final int DEFAULT_SIZE = 150;
     private Object[] elements;
@@ -47,7 +47,7 @@ public class ArrayList<T> implements List<T> {
     }
 
     public T get(int index) {
-        if (index < size && index > 0) {
+        if (index < size && index >= 0) {
             return (T) this.elements[index];
         } else { throw new IndexOutOfBoundsException(); }
     }

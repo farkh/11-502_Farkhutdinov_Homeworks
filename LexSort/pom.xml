@@ -18,8 +18,8 @@
 
         <dependency>
             <groupId>ru.itis.inform</groupId>
-            <artifactId>lists</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>LinkedList</artifactId>
+            <version>v.2.0</version>
         </dependency>
 
         <dependency>

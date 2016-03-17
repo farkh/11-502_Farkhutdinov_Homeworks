@@ -1,5 +1,7 @@
 package LinkedList;
 
+import ArrayList.*;
+
 /**
  * Created by farkh on 15/03/16.
  */
@@ -78,6 +80,10 @@ public class LinkedList<T> implements List<T> {
         }
     }
 
+    public Iterator<T> iterator() {
+        return new LinkedListIteratorImpl<T>(this.first);
+    }
+
     public void append(LinkedList list) {
         this.first.setPrevious(list.getLast());
         list.getLast().setNext(this.first);
@@ -143,6 +149,43 @@ public class LinkedList<T> implements List<T> {
         }
 
         return merged;
+    }
+
+    public static <T extends Comparable<T>> LinkedList mergeSort(LinkedList<T> list) {
+        ArrayList<LinkedList<T>> array = new ArrayList<LinkedList<T>>();
+        int count = 0;
+        boolean last = false;
+        Iterator<T> iterator = list.iterator();
+
+        for (int i = 0; i <= list.getLength(); i++) {
+            array.set(i, new LinkedList<T>());
+        }
+
+        while (array.get(0).getLength() != list.getLength()) {
+            for (int i = count; i >= 1; i--) {
+                if ((array.get(i).getLength() == array.get(i - 1).getLength()) && (array.get(i).getLength() != 0)) {
+                    array.set(i - 1, merge(array.get(i), array.get(i - 1)));
+                    array.set(i, new LinkedList<T>());
+                    count--;
+                    last = false;
+                }
+
+                if (iterator.hasNext() == false && last == true) {
+                    for (i = count - 1; i >= 1; i--) {
+                        array.set(i - 1, merge(array.get(i), array.get(i - 1)));
+                    }
+                }
+            }
+
+            if (iterator.hasNext()) {
+                array.get(count).add(iterator.getCurrent());
+                iterator.next();
+                count++;
+            }
+            last = true;
+        }
+
+        return array.get(0);
     }
 
 }

@@ -1,6 +1,7 @@
 package Sorter;
 import lists.*;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,8 +13,8 @@ import java.nio.file.StandardOpenOption;
  * Created by farkh on 29/02/16.
  */
 public class StringReaderWriter {
-    public LinkedList<String> read(String fileName) throws IOException {
-        FileReader file = new FileReader(fileName);
+    public LinkedList<String> read(String path) throws IOException {
+        FileReader file = new FileReader(path);
         BufferedReader reader = new BufferedReader(file);
         LinkedList<String> list = new LinkedList<String>();
 

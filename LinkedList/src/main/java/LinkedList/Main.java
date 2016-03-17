@@ -23,5 +23,17 @@ public class Main {
 
         LinkedList<Integer> merged = LinkedList.merge(list, second);
         merged.showList();
+
+        System.out.println();
+
+        LinkedList<Integer> sort = new LinkedList<Integer>();
+        sort.add(5);
+        sort.add(3);
+        sort.add(7);
+        sort.add(2);
+        sort.add(1);
+
+        LinkedList<Integer> sorted = LinkedList.mergeSort(sort);
+        sorted.showList();
     }
 }

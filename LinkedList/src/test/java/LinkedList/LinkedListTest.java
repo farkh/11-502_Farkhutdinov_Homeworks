@@ -65,4 +65,25 @@ public class LinkedListTest {
 
         assertTrue(merged.checkEquals(required));
     }
+
+    @Test
+    public void testMergeSort() {
+        LinkedList<Integer> sort = new LinkedList<Integer>();
+        sort.add(5);
+        sort.add(3);
+        sort.add(7);
+        sort.add(2);
+        sort.add(1);
+
+        LinkedList<Integer> sorted = LinkedList.mergeSort(sort);
+
+        LinkedList<Integer> required = new LinkedList<Integer>();
+        required.add(1);
+        required.add(2);
+        required.add(3);
+        required.add(5);
+        required.add(7);
+
+        assertTrue(sorted.checkEquals(required));
+    }
 }

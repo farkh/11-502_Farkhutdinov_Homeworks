@@ -11,7 +11,7 @@ public class LexSorter {
 
         Element<String> element = list.getFirst();
         maxLength = element.getValue().split(" ", 1)[0].length();
-        while (element.getValue() != null) {
+        while (element != null) {
             if (element.getValue().split(" ", 1)[0].length() > maxLength) {
                 maxLength = element.getValue().split(" ", 1)[0].length();
             }
@@ -25,7 +25,7 @@ public class LexSorter {
     }
 
     public LinkedList<String> sortWords(LinkedList<String> list, int i) {
-        ArrayList<LinkedList<String>> array = new ArrayList<LinkedList<String>>(100);
+        ArrayList<LinkedList<String>> array = new ArrayList<LinkedList<String>>(150);
 
         Element<String> wordElement = list.getFirst();
 
