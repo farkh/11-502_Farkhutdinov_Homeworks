@@ -32,6 +32,7 @@ public class Main {
         sort.add(7);
         sort.add(2);
         sort.add(1);
+        sort.add(10);
 
         LinkedList<Integer> sorted = LinkedList.mergeSort(sort);
         sorted.showList();
