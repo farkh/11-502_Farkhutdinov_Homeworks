@@ -21,7 +21,7 @@ public class JarvisAlg {
 
         //searching for a starting point
         for (int i = 1; i < array.length; i++) {
-            if ((array[i].getY() < array[minIndex].getY()) || (array[i].getY() < array[minIndex].getY() && (array[i].getX() > array[minIndex].getX())) {
+            if ((array[i].getY() < array[minIndex].getY()) || (array[i].getY() < array[minIndex].getY() && (array[i].getX() > array[minIndex].getX()))) {
                 minIndex = i;
             }
         }
