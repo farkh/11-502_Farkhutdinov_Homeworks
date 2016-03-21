@@ -15,20 +15,24 @@ public class JarvisAlg {
         return (int) Math.pow((b.getX() - a.getX()), 2) + (int) Math.pow((b.getY() - a.getY()), 2);
     }
 
-    public Point[] findShell(Point[] array) {
+    //searching for a first point
+    public Point[] startSearching (Point[] array) {
         Point[] shell = new Point[array.length];
         int minIndex = 0;
 
-        //searching for a starting point
-        for (int i = 1; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if ((array[i].getY() < array[minIndex].getY()) || (array[i].getY() < array[minIndex].getY() && (array[i].getX() > array[minIndex].getX()))) {
                 minIndex = i;
+                shell[0] = array[minIndex];
             }
         }
-
-        shell[0] = array[minIndex];
+        return shell;
+    }
+    
+    public Point[] findShell(Point[] array) {
         int index = 0;
         int nextPoint = 1;
+        Point[] shell = startSearching(array);
 
         do {
             for (int i = 1; i < array.length; i++) {
@@ -47,5 +51,4 @@ public class JarvisAlg {
 
         return shell;
     }
-
 }
