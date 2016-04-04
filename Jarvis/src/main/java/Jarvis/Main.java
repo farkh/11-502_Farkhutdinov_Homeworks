@@ -25,7 +25,7 @@ public class Main {
         Point[] result = jarvis.findShell(lot);
         for (int i = 0; i < pointsNumber; i++) {
             if (result[i] != null) {
-                System.out.println("( " + result[i].getX() + " " + ";" + " " + result[i].getY() + ")");
+                System.out.println("( " + result[i].getX() + " " + ";" + " " + result[i].getY() + ");");
             }
         }
     }

@@ -28,7 +28,7 @@ public class JarvisAlg {
         }
         return shell;
     }
-    
+
     public Point[] findShell(Point[] array) {
         int index = 0;
         int nextPoint = 1;
@@ -51,4 +51,19 @@ public class JarvisAlg {
 
         return shell;
     }
+
+    /*
+    public boolean checkEquals(Point[] array, Point[] second) {
+        if (array.length != second.length) {
+            return false;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != second[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    */
 }
