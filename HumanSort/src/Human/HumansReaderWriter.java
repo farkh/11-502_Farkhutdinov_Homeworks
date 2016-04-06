@@ -10,11 +10,10 @@ import java.nio.file.StandardOpenOption;
  * Created by farkh on 24/02/16.
  */
 public class HumansReaderWriter {
-
+    LinkedList<Human> list = new LinkedList<Human>();
 
     public LinkedList<Human> readHumans(String fileName) {
         //read file input.txt
-        LinkedList<Human> list = new LinkedList<Human>();
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
@@ -49,13 +48,6 @@ public class HumansReaderWriter {
 
         Path file = Paths.get("/Users/farkh/Documents/Programming/11-502_Farkhutdinov_Homeworks/HumanSort/src/output.txt");
 
-        /*
-        try {
-            FileWriter writer = new FileWriter("/Users/farkh/Documents/Programming/11-502_Farkhutdinov_Homeworks/HumanSort/src/output.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
         try {
             Files.write(file, value.getBytes());
         } catch (IOException e) {
@@ -65,7 +57,7 @@ public class HumansReaderWriter {
         element = element.getNext();
 
         while (element != null) {
-            value = element.toString() + "\n";
+            value = element.toString();
 
             try {
                 Files.write(file, value.getBytes());
@@ -76,16 +68,4 @@ public class HumansReaderWriter {
             element = element.getNext();
         }
     }
-    /*
-    public void writeHumans(LinkedList<Human> humans) throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter(new File("/Users/farkh/Documents/Programming/11-502_Farkhutdinov_Homeworks/HumanSort/src/output.txt"));
-
-        Element<Human> element = humans.getFirst();
-        do {
-            writer.write(element.toString());
-            writer.write("out");
-            element = element.getNext();
-        } while (element != null);
-    }
-    */
 }

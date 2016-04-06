@@ -1,9 +1,10 @@
 package LinkedList;
 
 /**
- * Created by farkh on 15/03/16.
+ * Created by farkh on 06/04/16.
  */
-public interface List<T extends Comparable<T>> {
+
+public interface List<T> {
     void add(T element);
     void remove(T element);
     Node<T> getFirst();

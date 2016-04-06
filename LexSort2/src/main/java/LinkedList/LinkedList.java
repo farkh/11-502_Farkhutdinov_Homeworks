@@ -1,9 +1,10 @@
 package LinkedList;
 
 /**
- * Created by farkh on 15/03/16.
+ * Created by farkh on 06/04/16.
  */
-public class LinkedList<T extends Comparable<T>> implements List<T> {
+
+public class LinkedList<T> implements List<T> {
     private Node<T> first;
     private Node<T> last;
     private int length;

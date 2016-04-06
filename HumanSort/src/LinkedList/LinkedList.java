@@ -22,14 +22,13 @@ public class LinkedList<T> implements List<T> {
     @Override
     public void add(T element) {
         Element<T> newElement = new Element<T>(element);
-
         if (first == null) {
             this.first = newElement;
             this.last = newElement;
         } else {
-            newElement.setNext(this.first);
-            first.setPrevious(newElement);
-            first = newElement;
+            this.last.setNext(newElement);
+            newElement.setPrevious(this.last);
+            this.last = newElement;
         }
         this.length++;
     }

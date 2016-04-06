@@ -1,9 +1,10 @@
 package LinkedList;
 
 /**
- * Created by farkh on 15/03/16.
+ * Created by farkh on 06/04/16.
  */
-public class Node<T extends Comparable<T>> implements Comparable {
+
+public class Node<T>  {
     private T value;
     private Node<T> next;
     private Node<T> previous;
@@ -40,14 +41,5 @@ public class Node<T extends Comparable<T>> implements Comparable {
     @Override
     public String toString() {
         return this.value.toString();
-    }
-
-    public int compareTo(Object second) {
-        if (second instanceof Node) {
-            Node<T> secondNode = (Node<T>) second;
-            return this.value.compareTo(secondNode.getValue());
-        } else {
-            return -1;
-        }
     }
 }

@@ -15,5 +15,6 @@ public class Main {
         LinkedList<Human> sorted = sorter.sort(list);
 
         reader.writeHumans(sorted);
+        //reader.out("output.txt");
     }
 }
