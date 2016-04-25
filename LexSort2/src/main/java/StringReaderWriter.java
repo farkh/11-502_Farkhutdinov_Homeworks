@@ -19,6 +19,9 @@ public class StringReaderWriter<T> {
             list.add(makeHuman(line));
             line = reader.readLine();
         }
+        file.close();
+        reader.close();
+
         return list;
     }
 

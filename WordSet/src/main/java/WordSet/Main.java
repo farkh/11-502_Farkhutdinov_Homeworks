@@ -25,15 +25,16 @@ public class Main {
         WordSet vowels = wordSet.vowelDivide()[0];
         vowels.out("output.txt");
 
+        */
         //A list of words starting with a consonant letter
-        WordSet consonants = wordSet.vowelDivide()[0];
+        WordSet consonants = wordSet.vowelDivide()[1];
         consonants.out("output.txt");
 
 
-
+        /*
         WordSet newWordSetByWordLength = wordSet.newWordSetByWordLength(3);
         newWordSetByWordLength.out("output.txt");
-        */
+
 
         wordSet.out("output.txt");
 
@@ -43,5 +44,6 @@ public class Main {
         WordSet mergedWordSet = new WordSet(wordSet, anotherWordSet);
 
         mergedWordSet.out("output.txt");
+        */
     }
 }
