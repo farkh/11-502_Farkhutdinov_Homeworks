@@ -4,6 +4,7 @@
 public class MyString {
     private char[] characters;
     private int length;
+    private String createdString;
 
     public MyString (String string) {
         length = string.length();
@@ -11,6 +12,7 @@ public class MyString {
         for (int i = 0; i < length; i++) {
             characters[i] = string.charAt(i);
         }
+        createdString = string;
     }
 
     public int length() {
@@ -117,10 +119,10 @@ public class MyString {
         return new String(characters);
     }
 
-    /*
     public int hashCode() {
+        int result = 19;
 
+        result = 37 * result + (characters.toString() == null ? 0 : toString().hashCode());
+        return result;
     }
-    */
-
 }
