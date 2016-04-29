@@ -16,7 +16,6 @@ public class DijkstraAlgorithm {
         init(distance, INF);
         distance[startVert] = 0;
 
-        //infinite loop
         for ( ; ; ) {
             int currentVertex = -1;
 
