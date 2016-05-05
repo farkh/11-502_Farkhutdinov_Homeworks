@@ -56,11 +56,11 @@ public class BAGenerator {
     }
 
     private boolean isSuitable(int vertex) {
-        if (random.nextInt() < calcP(vertex)) {
-            return true;
-        } else {
-            return false;
-        }
+        return compare(vertex);
+    }
+
+    private boolean compare(int vertex) {
+        return random.nextInt() < calcP(vertex);
     }
 
     private int calcP(int vertex) {
