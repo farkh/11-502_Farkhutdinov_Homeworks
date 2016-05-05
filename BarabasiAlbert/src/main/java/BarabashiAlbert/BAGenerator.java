@@ -5,19 +5,28 @@ import java.util.Random;
  * Created by farkh on 05/05/16.
  */
 public class BAGenerator {
-    private final int MAX_SIZE = 25;
+    private final int DEFAULT_SIZE = 25;
     Random random = new Random();
+    private int size;
     private int[][] graph;
     private int count;
     private int[] exponents;
     private int sumOfExp;
 
     public BAGenerator() {
-        this.graph = new int[MAX_SIZE][MAX_SIZE];
-        this.exponents = new int[MAX_SIZE];
+        init(DEFAULT_SIZE);
+    }
 
-        for (int i = 0; i < MAX_SIZE; i++) {
-            for (int j = 0; j < MAX_SIZE; j++) {
+    public BAGenerator(int size) {
+        init(size);
+    }
+
+    private void init(int size) {
+        this.graph = new int[size][size];
+        this.exponents = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 graph[i][j] = 0;
                 graph[j][i] = 0;
             }
@@ -28,10 +37,11 @@ public class BAGenerator {
         exponents[1] = 1;
         this.count = 2;
         this.sumOfExp = 2;
+        this.size = size;
     }
 
     public void generate() {
-        for (int i = 2; i < MAX_SIZE; i++) {
+        for (int i = 2; i < this.size; i++) {
             for (int j = 0; j < count; j++) {
                 if (isSuitable(j)) {
                     graph[i][j] = 1;
@@ -46,19 +56,23 @@ public class BAGenerator {
     }
 
     private boolean isSuitable(int vertex) {
-        if (random.nextInt() < exponents[vertex] * 100 / sumOfExp) {
+        if (random.nextInt() < calcP(vertex)) {
             return true;
         } else {
             return false;
         }
     }
 
+    private int calcP(int vertex) {
+        return exponents[vertex] * 100 / sumOfExp;
+    }
+
     public void show() {
-        for (int i = 0; i < MAX_SIZE; i++) {
-            for (int j = 0; j < MAX_SIZE - 1; j++) {
+        for (int i = 0; i < this.size; i++) {
+            for (int j = 0; j < this.size - 1; j++) {
                 System.out.print(graph[i][j] + ", ");
             }
-            System.out.println(graph[i][MAX_SIZE - 1]);
+            System.out.println(graph[i][this.size - 1]);
         }
     }
 }
