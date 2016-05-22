@@ -1,0 +1,7 @@
+death 17
+green 85
+music 81
+fifty 58
+party 75
+kelly 41
+mouth 58

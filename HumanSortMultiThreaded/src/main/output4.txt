@@ -1,0 +1,7 @@
+apple 12
+dream 41
+sugar 43
+piano 54
+woman 59
+three 85
+laugh 98

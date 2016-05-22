@@ -1,0 +1,7 @@
+harry 24
+bruce 43
+alexa 30
+alfrd 52
+clark 38
+liana 12
+about 93

@@ -1,0 +1,7 @@
+faith 49
+abate 51
+amber 59
+river 62
+money 85
+tiger 91
+earth 95
