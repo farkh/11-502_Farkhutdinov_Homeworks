@@ -31,11 +31,5 @@ public class Tokenizer {
                 signs += text.charAt(i);
             }
         }
-
-
-
-
-
-
     }
 }
