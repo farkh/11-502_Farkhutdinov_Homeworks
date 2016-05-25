@@ -11,24 +11,30 @@ public class Tokenizer {
         String signs = "";
 
         for (int i = 0; i < text.length(); i++) {
-            if (Character.isDigit(text.charAt(i)) && i > 0 && Character.isSpaceChar(text.charAt(i - 1))) {
-                digits = digits + " " + text.charAt(i);
-            } else if (Character.isDigit(text.charAt(i))) {
+            if ((Character.isDigit(text.charAt(i)) && i < text.length() - 1 && !Character.isDigit(text.charAt(i + 1))) || (Character.isDigit(text.charAt(i)) && i == text.length() - 1)) {
                 digits += text.charAt(i);
-            } else if (Character.isLetter(text.charAt(i)) && i > 0 && !Character.isLetter(text.charAt(i - 1))) {
-                words = words + " " + text.charAt(i);
+                tokkenizeObserver.handleDigits(digits);
+                digits = "";
+            } else if (Character.isDigit(text.charAt(i)) ) {
+                digits += text.charAt(i);
+            } else if ((Character.isLetter(text.charAt(i)) && i < text.length() - 1 && !Character.isLetter(text.charAt(i + 1)))  || (Character.isLetter(text.charAt(i)) && i == text.length() - 1)) {
+                words += text.charAt(i);
+                tokkenizeObserver.handleLetters(words);
+                words = "";
             } else if (Character.isLetter(text.charAt(i))) {
                 words += text.charAt(i);
-            } else if (!Character.isSpaceChar(text.charAt(i)) && i > 0 && (Character.isLetter(text.charAt(i - 1)) || Character.isDigit(text.charAt(i - 1)))) {
-                signs = signs + " " + text.charAt(i);
+            } else if ((!Character.isSpaceChar(text.charAt(i)) && i < text.length() - 1 && (Character.isSpaceChar(text.charAt(i + 1)) || Character.isDigit(text.charAt(i + 1)) || Character.isLetter(text.charAt(i + 1)))) || !Character.isSpaceChar(text.charAt(i)) && i == text.length() - 1) {
+                signs += text.charAt(i);
+                tokkenizeObserver.handleSigns(signs);
+                signs = "";
             } else if (!Character.isSpaceChar(text.charAt(i))) {
                 signs += text.charAt(i);
             }
         }
 
-        tokkenizeObserver.handleDigits(digits);
-        tokkenizeObserver.handleLetters(words);
-        tokkenizeObserver.handleSigns(signs);
+
+
+
 
 
     }
